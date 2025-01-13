@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiragana Learning</title>
+    <style>
+        body {
+            background-color: #f8e1e1; /* สีชมพูอ่อน */
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #e91e63;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .video-container {
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+        }
+        .hiragana-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+        }
+        .hiragana-box {
+            padding: 10px;
+            background-color: #ffe6f0;
+            border-radius: 10px;
+            border: 2px solid #e91e63;
+            font-size: 24px;
+            font-weight: bold;
+            color: #e91e63;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .hiragana-box:hover {
+            background-color: #fce4ec;
+        }
+
+        /* สำหรับการแสดงวิดีโอเพิ่มเติม */
+        #videoContainer {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        #videoOverlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Learn Hiragana</h1>
+
+    <!-- วิดีโอ -->
+    <div class="video-container">
+        <iframe id="videoFrame" src="https://www.youtube.com/embed/vEnQtNcR4iA?start=17" allowfullscreen></iframe>
+
+
+    </div>
+
+    <!-- ฮิรางานะ -->
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(0)">あ</div>
+    <div class="hiragana-box" onclick="playVideo(1)">い</div>
+    <div class="hiragana-box" onclick="playVideo(2)">う</div>
+    <div class="hiragana-box" onclick="playVideo(3)">え</div>
+    <div class="hiragana-box" onclick="playVideo(4)">お</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(5)">か</div>
+    <div class="hiragana-box" onclick="playVideo(6)">き</div>
+    <div class="hiragana-box" onclick="playVideo(7)">く</div>
+    <div class="hiragana-box" onclick="playVideo(8)">け</div>
+    <div class="hiragana-box" onclick="playVideo(9)">こ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(10)">さ</div>
+    <div class="hiragana-box" onclick="playVideo(11)">し</div>
+    <div class="hiragana-box" onclick="playVideo(12)">す</div>
+    <div class="hiragana-box" onclick="playVideo(13)">せ</div>
+    <div class="hiragana-box" onclick="playVideo(14)">そ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(15)">た</div>
+    <div class="hiragana-box" onclick="playVideo(16)">ち</div>
+    <div class="hiragana-box" onclick="playVideo(17)">つ</div>
+    <div class="hiragana-box" onclick="playVideo(18)">て</div>
+    <div class="hiragana-box" onclick="playVideo(19)">と</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(20)">な</div>
+    <div class="hiragana-box" onclick="playVideo(21)">に</div>
+    <div class="hiragana-box" onclick="playVideo(22)">ぬ</div>
+    <div class="hiragana-box" onclick="playVideo(23)">ね</div>
+    <div class="hiragana-box" onclick="playVideo(24)">の</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(25)">は</div>
+    <div class="hiragana-box" onclick="playVideo(26)">ひ</div>
+    <div class="hiragana-box" onclick="playVideo(27)">ふ</div>
+    <div class="hiragana-box" onclick="playVideo(28)">へ</div>
+    <div class="hiragana-box" onclick="playVideo(29)">ほ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(30)">ま</div>
+    <div class="hiragana-box" onclick="playVideo(31)">み</div>
+    <div class="hiragana-box" onclick="playVideo(32)">む</div>
+    <div class="hiragana-box" onclick="playVideo(33)">め</div>
+    <div class="hiragana-box" onclick="playVideo(34)">も</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(35)">や</div>
+    <div class="hiragana-box" onclick="playVideo(36)">ゆ</div>
+    <div class="hiragana-box" onclick="playVideo(37)">よ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(38)">ら</div>
+    <div class="hiragana-box" onclick="playVideo(39)">り</div>
+    <div class="hiragana-box" onclick="playVideo(40)">る</div>
+    <div class="hiragana-box" onclick="playVideo(41)">れ</div>
+    <div class="hiragana-box" onclick="playVideo(42)">ろ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(43)">わ</div>
+    <div class="hiragana-box" onclick="playVideo(44)">を</div>
+    <div class="hiragana-box" onclick="playVideo(45)">ん</div>
+</div>
+
+<!-- วรรคที่มีเต็น -->
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(46)">が</div>
+    <div class="hiragana-box" onclick="playVideo(47)">ぎ</div>
+    <div class="hiragana-box" onclick="playVideo(48)">ぐ</div>
+    <div class="hiragana-box" onclick="playVideo(49)">げ</div>
+    <div class="hiragana-box" onclick="playVideo(50)">ご</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(51)">ざ</div>
+    <div class="hiragana-box" onclick="playVideo(52)">じ</div>
+    <div class="hiragana-box" onclick="playVideo(53)">ず</div>
+    <div class="hiragana-box" onclick="playVideo(54)">ぜ</div>
+    <div class="hiragana-box" onclick="playVideo(55)">ぞ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(56)">だ</div>
+    <div class="hiragana-box" onclick="playVideo(57)">ぢ</div>
+    <div class="hiragana-box" onclick="playVideo(58)">づ</div>
+    <div class="hiragana-box" onclick="playVideo(59)">で</div>
+    <div class="hiragana-box" onclick="playVideo(60)">ど</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(61)">ば</div>
+    <div class="hiragana-box" onclick="playVideo(62)">び</div>
+    <div class="hiragana-box" onclick="playVideo(63)">ぶ</div>
+    <div class="hiragana-box" onclick="playVideo(64)">べ</div>
+    <div class="hiragana-box" onclick="playVideo(65)">ぼ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(66)">ぱ</div>
+    <div class="hiragana-box" onclick="playVideo(67)">ぴ</div>
+    <div class="hiragana-box" onclick="playVideo(68)">ぷ</div>
+    <div class="hiragana-box" onclick="playVideo(69)">ぺ</div>
+    <div class="hiragana-box" onclick="playVideo(70)">ぽ</div>
+</div>
+
+<!-- อักษรควบ -->
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(71)">きゃ</div>
+    <div class="hiragana-box" onclick="playVideo(72)">きゅ</div>
+    <div class="hiragana-box" onclick="playVideo(73)">きょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(74)">しゃ</div>
+    <div class="hiragana-box" onclick="playVideo(75)">しゅ</div>
+    <div class="hiragana-box" onclick="playVideo(76)">しょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(77)">ちゃ</div>
+    <div class="hiragana-box" onclick="playVideo(78)">ちゅ</div>
+    <div class="hiragana-box" onclick="playVideo(79)">ちょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(80)">にゃ</div>
+    <div class="hiragana-box" onclick="playVideo(81)">にゅ</div>
+    <div class="hiragana-box" onclick="playVideo(82)">にょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(83)">ひゃ</div>
+    <div class="hiragana-box" onclick="playVideo(84)">ひゅ</div>
+    <div class="hiragana-box" onclick="playVideo(85)">ひょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(86)">みゃ</div>
+    <div class="hiragana-box" onclick="playVideo(87)">みゅ</div>
+    <div class="hiragana-box" onclick="playVideo(88)">みょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(89)">りゃ</div>
+    <div class="hiragana-box" onclick="playVideo(90)">りゅ</div>
+    <div class="hiragana-box" onclick="playVideo(91)">りょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(92)">ぎゃ</div>
+    <div class="hiragana-box" onclick="playVideo(93)">ぎゅ</div>
+    <div class="hiragana-box" onclick="playVideo(94)">ぎょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(95)">じゃ</div>
+    <div class="hiragana-box" onclick="playVideo(96)">じゅ</div>
+    <div class="hiragana-box" onclick="playVideo(97)">じょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(98)">びゃ</div>
+    <div class="hiragana-box" onclick="playVideo(99)">びゅ</div>
+    <div class="hiragana-box" onclick="playVideo(100)">びょ</div>
+</div>
+
+<div class="hiragana-grid">
+    <div class="hiragana-box" onclick="playVideo(101)">ぴゃ</div>
+    <div class="hiragana-box" onclick="playVideo(102)">ぴゅ</div>
+    <div class="hiragana-box" onclick="playVideo(103)">ぴょ</div>
+</div>
+
+<div id="videoOverlay"></div>
+
+<!-- วิดีโอ -->
+<div id="videoContainer">
+    <div id="youtubePlayer"></div>
+    <button id="closeButton">ปิดวิดีโอ</button>
+</div>
+
+<script>
+    let player;
+
+    // โหลด YouTube IFrame Player API
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    // เมื่อ API พร้อมให้ใช้งาน
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtubePlayer', {
+            height: '315',
+            width: '560',
+            videoId: 'vEnQtNcR4iA', // ID ของวิดีโอ YouTube
+            playerVars: {
+                autoplay: 0, // ไม่เริ่มเล่นอัตโนมัติ
+                controls: 1, // แสดงปุ่มควบคุม
+                rel: 0 // ไม่แสดงวิดีโอที่เกี่ยวข้อง
+            },
+            events: {
+                onReady: onPlayerReady,
+            },
+        });
+    }
+
+    function onPlayerReady() {
+        const playButton = document.getElementById('playButton');
+        const videoOverlay = document.getElementById('videoOverlay');
+        const videoContainer = document.getElementById('videoContainer');
+        const closeButton = document.getElementById('closeButton');
+
+        // เมื่อคลิกปุ่มเล่น
+        playButton.addEventListener('click', () => {
+            videoOverlay.style.display = 'block'; // แสดงพื้นหลังมืด
+            videoContainer.style.display = 'block'; // แสดงวิดีโอ
+            player.playVideo(); // เล่นวิดีโอ
+        });
+
+        // เมื่อคลิกปิด
+        closeButton.addEventListener('click', () => {
+            videoOverlay.style.display = 'none'; // ซ่อนพื้นหลังมืด
+            videoContainer.style.display = 'none'; // ซ่อนวิดีโอ
+            player.stopVideo(); // หยุดวิดีโอ
+        });
+
+        // เมื่อคลิกนอกวิดีโอ
+        videoOverlay.addEventListener('click', () => {
+            closeButton.click();
+        });
+    }
+
+    // ฟังก์ชันเล่นวิดีโอ
+    function playVideo(index) {
+        const startTimes = [
+            0.00, 6.00, 12.00, 18.00, 24.00, // あ, い, う, え, お
+            30.00, 36.00, 42.00, 48.00, 54.00, // か, き, く, け, こ
+            60.00, 66.00, 72.00, 78.00, 84.00, // さ, し, す, せ, そ
+            90.00, 96.00, 102.00, 108.00, 114.00, // た, ち, つ, て, と
+            120.00, 126.00, 132.00, 138.00, 144.00, // な, に, ぬ, ね, の
+            150.00, 156.00, 162.00, 168.00, 174.00, // は, ひ, ふ, へ, ほ
+            180.00, 186.00, 192.00, 198.00, 204.00, // ま, み, む, め, も
+            210.00, 216.00, 222.00, // や, ゆ, よ
+            228.00, 234.00, 240.00, 246.00, 252.00, // ら, り, る, れ, ろ
+            258.00, 264.00, 270.00, 276.00, 282.00, // わ, を, ん
+            288.00, 294.00, 300.00, 306.00, 312.00, // が, ぎ, ぐ, げ, ご
+            318.00, 324.00, 330.00, 336.00, 342.00, // ざ, じ, ず, ぜ, ぞ
+            348.00, 354.00, 360.00, 366.00, 372.00, // だ, ぢ, づ, で, ど
+            378.00, 384.00, 390.00, 396.00, 402.00, // ば, び, ぶ, べ, ぼ
+            408.00, 414.00, 420.00, 426.00, 432.00, // ぱ, ぴ, ぷ, ぺ, ぽ
+            438.00, 444.00, 450.00, 456.00, 462.00, // きゃ, きゅ, きょ
+            468.00, 474.00, 480.00, 486.00, 492.00, // しゃ, しゅ, しょ
+            498.00, 504.00, 510.00, 516.00, 522.00, // ちゃ, ちゅ, ちょ
+            528.00, 534.00, 540.00, 546.00, 552.00, // にゃ, にゅ, にょ
+            558.00, 564.00, 570.00, 576.00, 582.00, // ひゃ, ひゅ, ひょ
+            588.00, 594.00, 600.00, 606.00, 612.00, // みゃ, みゅ, みょ
+            618.00, 624.00, 630.00, 636.00, 642.00, // りゃ, りゅ, りょ
+            648.00, 654.00, 660.00, 666.00, 672.00, // ぎゃ, ぎゅ, ぎょ
+            678.00, 684.00, 690.00, 696.00, 702.00, // じゃ, じゅ, じょ
+            708.00, 714.00, 720.00, 726.00, 732.00, // びゃ, びゅ, びょ
+            738.00, 744.00, 750.00, 756.00, 762.00  // ぴゃ, ぴゅ, ぴょ
+        ];
+
+        let startTime = startTimes[index];
+        let endTime = startTime + 6; // 6 วินาทีสำหรับแต่ละตัวอักษร
+        let videoUrl = `https://www.youtube.com/embed/vEnQtNcR4iA?start=${startTime}&end=${endTime}`;
+        
+        document.getElementById('videoFrame').src = videoUrl; // เปลี่ยน URL ของ iframe
+    }
+</script>
+
+</body>
+</html>
+<!-- ปุ่มย้อนกลับไปหน้า index อยู่ซ้ายบน -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <button onclick="window.location.href='index.html';">กลับไปหน้าแรก</button>
+</div>

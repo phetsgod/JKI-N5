@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คันจิ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8e1e1;
+            color: #e91e63;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            border: 10px solid #e91e63;
+            box-sizing: border-box;
+        }
+        .row {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+        .kana {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+            width: 120px;
+        }
+        .kana h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        button {
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            color: #f8e1e1;
+            background-color: #e91e63;
+            border: 2px solid #f8e1e1;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f8e1e1;
+            color: #e91e63;
+        }
+        #strokeDisplay {
+            margin-top: 30px;
+            text-align: left;
+            padding: 20px;
+            border: 2px solid #e91e63;
+            display: inline-block;
+        }
+        #strokeDisplay img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #e91e63;
+            margin-top: 10px;
+        }
+        #kanjiDetails {
+            margin-top: 20px;
+            color: #e91e63;
+        }
+    </style>
+</head>
+<body>
+    <h1>คันจิ</h1>
+    <p>เรียนรู้วิธีเขียนและความหมายของอักษรคันจิ</p>
+
+    <!-- แสดงลำดับขีดในหน้า -->
+    <div id="strokeDisplay">
+        <h2>ลำดับขีด</h2>
+        <img id="strokeImage" src="" alt="ลำดับขีดจะปรากฏที่นี่">
+        <div id="kanjiDetails"></div>
+    </div>
+
+<div id="kanaContainer">
+    <!-- แถวแรก -->
+    <div class="row">
+        <div class="kana">
+            <h2>安</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5B89.gif', '安', 'สงบสุข / ราคาถูก', 'アン', 'やす(い)', '6')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>一</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4E00.gif', '一', 'หนึ่ง', 'イチ/イツ', 'ひと(つ)', '1')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>飲</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/98F2.gif', '飲', 'ดื่ม', 'イン', 'の(む)', '12')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>右</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/53F3.gif', '右', 'ขวา', 'ウ/ユウ', 'みぎ', '5')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>雨</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/96E8.gif', '雨', 'ฝน', 'ウ', 'あめ', '8')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>駅</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/99C5.gif', '駅', 'สถานี', 'エキ', '', '14')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>円</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5186.gif', '円', 'วงกลม / เยน', 'エン', 'まる(い)', '4')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>火</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/706B.gif', '火', 'ไฟ', 'カ', 'ひ/ほ', '4')">[ดูรายละเอียด]</button>
+        </div>
+    </div>
+</div>
+
+             
+
+    <script>
+        function showDetails(image, kanji, meaning, onyomi, kunyomi, strokes) {
+            // อัปเดตรูปภาพลำดับขีด
+            document.getElementById('strokeImage').src = image;
+
+            // อัปเดตรายละเอียดของคันจิ
+            document.getElementById('kanjiDetails').innerHTML = `
+                <p><strong>ตัวคันจิ:</strong> ${kanji}</p>
+                <p><strong>ความหมาย:</strong> ${meaning}</p>
+                <p><strong>Onyomi:</strong> ${onyomi}</p>
+                <p><strong>Kunyomi:</strong> ${kunyomi}</p>
+                <p><strong>จำนวนขีด:</strong> ${strokes}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
+<div id="kanaContainer">
+    <!-- แถวที่สอง -->
+    <div class="row">
+        <div class="kana">
+            <h2>花</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/82B1.gif', '花', 'ดอกไม้', 'カ', 'はな', '7')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>下</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4E0B.gif', '下', 'ด้านล่าง / ใต้ / ต่ำ', 'カ/ゲ', 'した/しも/もと/くだ(る)/お(ろす)/さ(げる)', '3')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>何</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4F55.gif', '何', 'อะไร / กี่', 'カ', 'なに/なし', '7')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>会</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4F1A.gif', '会', 'พบ / สังคม', 'カイ/エ', 'あ(う)', '6')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>外</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5916.gif', '外', 'ข้างนอก', 'ガイ/ゲ', 'そと/ほか/はず(す)', '5')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>学</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5B66.gif', '学', 'ศึกษา / การเรียนรู้', 'ガク', 'まな(ぶ)', '8')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>間</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/9593.gif', '間', 'ระยะเวลา / ระหว่าง', 'カン/ケン', 'あいだ/ま', '12')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>気</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/6C17.gif', '気', 'แก๊ส / จิตใจ', 'キ', 'け', '6')">[ดูรายละเอียด]</button>
+        </div>
+    </div>
+</div>
+<!-- ปุ่มย้อนกลับไปหน้า index อยู่ซ้ายบน -->
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <button onclick="window.location.href='index.html';">กลับไปหน้าแรก</button>
+</div>
+<div id="kanaContainer">
+    <!-- แถวที่สาม -->
+    <div class="row">
+        <div class="kana">
+            <h2>九</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4E5D.gif', '九', 'เก้า', 'キュウ/ク', 'ここの(つ)', '2')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>休</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4F11.gif', '休', 'พักผ่อน', 'キュウ', 'やす(む)', '6')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>魚</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/9B5A.gif', '魚', 'ปลา', 'ギョ', 'さかな/うお', '11')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>金</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/91D1.gif', '金', 'เงิน / ทอง', 'キン/コン', 'かな/かね', '8')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>空</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/7A7A.gif', '空', 'ท้องฟ้า / อากาศ / ว่าง', 'クウ', 'そら/から/あ(く)/あ(ける)', '8')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>月</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/6708.gif', '月', 'ดวงจันทร์ / เดือน', 'ゲツ', 'げつ/つき', '4')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>見</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/898B.gif', '見', 'เห็น', 'ケン', 'けん/み(る)', '7')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>言</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/8A00.gif', '言', 'พูด / คำพูด', 'ゲン/ゴン', 'い(う)/こと', '7')">[ดูรายละเอียด]</button>
+        </div>
+    </div>
+</div>
+<div id="kanaContainer">
+    <!-- แถวที่สี่ -->
+    <div class="row">
+        <div class="kana">
+            <h2>古</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/53E4.gif', '古', 'เก่า', 'コ', 'ふる(い)/ふる(す)', '5')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>五</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4E94.gif', '五', 'ห้า', 'ゴ', 'いつ/いつ(つ)', '4')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>後</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5F8C.gif', '後', 'หลัง', 'ゴ/コウ', 'のち/うし(ろ)/あと/おく(れる)', '9')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>午</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5348.gif', '午', 'เที่ยง', 'ゴ', '', '4')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>語</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/8A9E.gif', '語', 'ภาษา / คำพูด / บอก', 'ゴ', 'かた(る)/かた(らう)', '14')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>校</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/6821.gif', '校', 'โรงเรียน / รวบรวม', 'コウ', '', '10')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>口</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/53E3.gif', '口', 'ปาก', 'コウ', 'くち', '3')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>行</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/884C.gif', '行', 'ไป / การกระทำ / เส้นทาง', 'コウ', 'い(く)/ゆ(く)/おこな(う)', '6')">[ดูรายละเอียด]</button>
+        </div>
+    </div>
+</div>
+<div id="kanaContainer">
+    <!-- แถวที่ห้า -->
+    <div class="row">
+        <div class="kana">
+            <h2>高</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/9AD8.gif', '高', 'สูง', 'コウ', 'たか(い)/たか(める)/たか(まる)/たか', '10')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>国</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/56FD.gif', '国', 'ประเทศ / ชาติ', 'コク', 'くに', '8')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>今</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4ECA.gif', '今', 'ตอนนี้ / นี้', 'コン', 'いま', '4')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>左</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5DE6.gif', '左', 'ซ้าย', 'サ', 'ひだり', '5')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>三</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/4E09.gif', '三', 'สาม', 'サン', 'み/みっ(つ)/み(つ)', '3')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>山</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5C71.gif', '山', 'ภูเขา', 'サン', 'やま', '3')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>四</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/56DB.gif', '四', 'สี่', 'シ', 'よ/よん/よっ(つ)/よ(つ)', '5')">[ดูรายละเอียด]</button>
+        </div>
+        <div class="kana">
+            <h2>子</h2>
+            <button onclick="showDetails('https://www.yosida.com/images/kanji/5B50.gif', '子', 'สิ่งเล็กๆ / เด็ก', 'シ', 'こ', '3')">[ดูรายละเอียด]</button>
+        </div>
+    </div>
+</div>
