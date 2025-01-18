@@ -3,42 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เรียนภาษาญี่ปุ่น N5</title>
+    <title>JKI</title>
     <style>
         body { 
             font-family: Arial, sans-serif; 
             text-align: center; 
             padding: 20px; 
-            background-color: #f8e1e1; /* สีชมพูอ่อน */
-            color: #e91e63; /* ข้อความสีชมพู */
-            border: 10px solid #e91e63; /* กรอบสีชมพู */
+            background-image: url('https://userstyles.org/style_screenshots/215804_after.gif?r=1737068496'); /* ใช้รูปเป็นพื้นหลัง */
+            background-size: cover; /* ปรับขนาดให้ครอบคลุมเต็มหน้า */
+            background-position: center; /* จัดให้อยู่ตรงกลาง */
+            background-repeat: no-repeat; /* ไม่ให้ภาพซ้ำ */
+            color: #ffffff; /* เปลี่ยนข้อความเป็นสีขาว */
             margin: 0;
+            height: 100vh; /* ปรับความสูงให้พอดีกับหน้าจอ */
             box-sizing: border-box;
+        }
+        h1, p {
+            background-color: rgba(0, 0, 0, 0.7); /* พื้นหลังข้อความโปร่งใสสีดำ */
+            color: #ffffff; /* สีข้อความขาว */
+            padding: 10px; /* เพิ่มช่องว่างภายใน */
+            display: inline-block; /* ทำให้ขนาดพอดีกับเนื้อหา */
+            border: 4px solid #ffffff; /* เพิ่มกรอบสีขาว */
+            border-radius: 10px; /* มุมโค้งมน */
+            box-shadow: 0px 0px 10px 2px #000000; /* เงาให้ดูเด่นขึ้น */
+            font-family: 'Press Start 2P', cursive; /* ฟอนต์สไตล์พิกเซล */
         }
         a { 
             text-decoration: none; 
-            color: #e91e63; /* ลิงก์สีชมพู */
+            color: #ffffff; /* ลิงก์สีขาว */
             font-size: 20px; 
             margin: 10px; 
             display: block; 
             padding: 10px; 
-            border: 2px solid #e91e63; /* กรอบลิงก์สีชมพู */
-            border-radius: 5px; /* มุมลิงก์โค้งมน */
-            background-color: #f8e1e1; /* พื้นหลังสีชมพู */
+            border: 4px solid #ffffff; /* กรอบลิงก์สีขาว */
+            border-radius: 10px; /* มุมโค้งมน */
+            background-color: rgba(0, 0, 0, 0.6); /* พื้นหลังลิงก์โปร่งใสสีดำ */
             width: fit-content;
             margin: 10px auto; /* จัดให้อยู่กลาง */
+            font-family: 'Press Start 2P', cursive; /* ฟอนต์สไตล์พิกเซล */
+            box-shadow: 0px 0px 10px 2px #000000; /* เงาให้ดูเด่นขึ้น */
         }
         a:hover {
-            background-color: #fce4ec; /* เปลี่ยนพื้นหลังเป็นสีชมพูอ่อนเมื่อเอาเมาส์วาง */
-            color: #e91e63; /* เปลี่ยนข้อความเป็นสีชมพูเข้มเมื่อเอาเมาส์วาง */
+            background-color: rgba(255, 255, 255, 0.8); /* เปลี่ยนพื้นหลังเป็นสีขาวโปร่งใสเมื่อเอาเมาส์วาง */
+            color: #000000; /* เปลี่ยนข้อความเป็นสีดำเมื่อเอาเมาส์วาง */
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>ยินดีต้อนรับสู่การเรียนภาษาญี่ปุ่น N5</h1>
+    <h1>ยินดีต้อนรับสู่การเรียนภาษาญี่ปุ่น</h1>
     <p>เลือกหมวดหมู่ที่คุณต้องการ:</p>
     <a href="hiragana.html">ฮิรางานะ</a>
     <a href="katakana.html">คาตาคานะ</a>
     <a href="kanji.html">คันจิ</a>
+    <a href="test.html">แบบทดสอบ</a> <!-- ลิงค์ไปหน้า test.html -->
+    <a href="videos.html">วิดีโอ</a> <!-- ลิงค์ไปหน้า videos.html -->
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เสียงเพลงเบาๆ</title>
+</head>
+<body>
+    <audio id="audio" loop autoplay>
+        <source src="https://cdn.pixabay.com/download/audio/2024/10/30/audio_345e0dc2e1.mp3?filename=japanese-style-piano-257200.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById('audio');
+            audio.volume = 0.05;  // ลดเสียงเป็น 20% ของเสียงเต็ม
+            audio.play();
+        };
+    </script>
 </body>
 </html>

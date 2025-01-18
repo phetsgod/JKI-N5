@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ข้อสอบแปลประโยค</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/d2/51/9f/d2519f97a780645b9b5335c3460ce25a.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            color: #4caf50;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .option {
+            padding: 10px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            color: white;
+        }
+        .option:hover {
+            background-color: #ff5722;
+        }
+        .option:active {
+            background-color: #e64a19;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ปุ่มกลับไปหน้า index -->
+    <div>
+        <button class="back-button" onclick="window.location.href='test.html';">Back</button>
+    </div>
+
+    <div class="container">
+        <h1>ข้อสอบแปลประโยค</h1>
+
+        <!-- คำถาม -->
+        <div class="question" id="question"></div>
+
+        <!-- ตัวเลือก -->
+        <div class="options" id="options"></div>
+
+        <!-- ผลการทดสอบ -->
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let correctAnswers = 0; // จำนวนข้อที่ทำถูก
+        let wrongAnswers = 0;    // จำนวนข้อที่ทำผิด
+        let currentQuestion = 0;  // ตัวแปรเก็บข้อปัจจุบัน
+        let questions = [
+            { question: 'わたしは がくせい です。', answer: 2, options: ['ฉันเป็นครู', 'ฉันเป็นนักเรียน', 'เขาเป็นนักเรียน'] },
+            { question: 'あした は てんき が いい です。', answer: 1, options: ['พรุ่งนี้อากาศดี', 'วันนี้ฝนตก', 'พรุ่งนี้จะมีฝนตก'] },
+            { question: 'きょう は えいご の じゅぎょう が あります。', answer: 1, options: ['วันนี้เรียนวิชาภาษาอังกฤษ', 'วันนี้เรียนวิชาคณิตศาสตร์', 'วันนี้เรียนวิชาวิทยาศาสตร์'] },
+            { question: 'かれ は ほん を よむ の が すき です。', answer: 1, options: ['เขาชอบอ่านหนังสือ', 'เขาชอบเล่นกีฬา', 'เขาชอบดูทีวี'] },
+            { question: 'きょう は しゅくだい を しました か？', answer: 3, options: ['คุณไปนอนหรือยัง', 'คุณไปทานข้าวไหม', 'คุณทำการบ้านเสร็จไหม'] },
+            { question: 'わたし は いぬ が すき です。', answer: 1, options: ['ฉันชอบสุนัข', 'ฉันชอบแมว', 'ฉันชอบปลาฉลาม'] },
+            { question: 'この まち の こうつう は べんり です。', answer: 2, options: ['การเดินทางในเมืองยาก', 'การเดินทางในเมืองสะดวก', 'การเดินทางในเมืองสนุก'] },
+            { question: 'わたし は にほんご を べんきょう しています。', answer: 1, options: ['ฉันกำลังเรียนภาษาญี่ปุ่น', 'ฉันกำลังเรียนภาษาอังกฤษ', 'ฉันกำลังเรียนภาษาจีน'] },
+            { question: 'ともだち は しゅくだい を しています。', answer: 1, options: ['เพื่อนกำลังทำการบ้าน', 'เพื่อนกำลังกินข้าว', 'เพื่อนกำลังเดินทางไป'] },
+            { question: 'すみません、トイレ は どこ です か？', answer: 3, options: ['ขอโทษครับ/ค่ะ สถานีรถไฟอยู่ที่ไหน', 'ขอโทษครับ/ค่ะ ร้านอาหารอยู่ที่ไหน', 'ขอโทษครับ/ค่ะ ห้องน้ำอยู่ที่ไหน'] },
+        ];
+
+        function updateQuestion() {
+            if (currentQuestion < questions.length) {
+                let questionData = questions[currentQuestion];
+                document.getElementById('question').innerHTML = questionData.question;
+                let optionsHTML = '';
+                for (let i = 0; i < questionData.options.length; i++) {
+                    optionsHTML += `<button class="option" onclick="checkAnswer(${i + 1})">${questionData.options[i]}</button>`;
+                }
+                document.getElementById('options').innerHTML = optionsHTML;
+            } else {
+                document.getElementById('result').innerHTML = `เสร็จสิ้น! ขอบคุณที่ทำแบบทดสอบ!<br>ถูก: ${correctAnswers} ผิด: ${wrongAnswers}`;
+            }
+        }
+
+        function checkAnswer(selectedOption) {
+            if (selectedOption === questions[currentQuestion].answer) {
+                correctAnswers++;
+            } else {
+                wrongAnswers++;
+            }
+
+            // แสดงผลการทดสอบ
+            document.getElementById('result').innerHTML = `ข้อ: ${currentQuestion + 1} ถูก: ${correctAnswers} ผิด: ${wrongAnswers}`;
+
+            // เลื่อนไปข้อถัดไป
+            currentQuestion++;
+            updateQuestion();
+        }
+
+        // เริ่มต้นคำถาม
+        updateQuestion();
+    </script>
+</body>
+</html>

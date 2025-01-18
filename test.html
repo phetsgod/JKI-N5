@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://i.pinimg.com/originals/d2/51/9f/d2519f97a780645b9b5335c3460ce25a.gif') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .button:hover {
+            background-color: #ff5722;
+        }
+        /* ปุ่มกลับไปหน้า index */
+        .back-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            padding: 10px 20px;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- ปุ่มกลับไปหน้า index -->
+    <div>
+        <button class="back-button" onclick="window.location.href='index.html';">Back</button>
+    </div>
+
+    <div class="container">
+        <h1>เลือกแบบทดสอบ</h1>
+        <p>เลือกข้อสอบที่คุณต้องการทำ</p>
+
+        <!-- ปุ่มไปยังข้อสอบโต้ตอบ -->
+        <a href="interactive_exam.html">
+            <button class="button">ข้อสอบโต้ตอบ</button>
+        </a>
+
+        <!-- ปุ่มไปยังข้อสอบแปลประโยค -->
+        <a href="translate_exam.html">
+            <button class="button">ข้อสอบแปลประโยค</button>
+        </a>
+
+        <!-- ปุ่มไปยังข้อสอบ JLPT -->
+        <a href="jlpt_exam.html">
+            <button class="button">JLPT</button>
+        </a>
+    </div>
+</body>
+</html>
