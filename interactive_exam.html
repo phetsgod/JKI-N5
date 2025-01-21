@@ -1,0 +1,62 @@
+YANG MAI SED
+KEE KIAD TAM WOEEEE
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLPT Listening Test</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .question {
+            margin-top: 20px;
+        }
+        .choices {
+            margin-top: 10px;
+        }
+        .choices button {
+            margin: 5px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>JLPT Listening Test (N5)</h1>
+    
+    <div class="question">
+        <p>ฟังเสียงแล้วเลือกคำตอบที่ถูกต้อง:</p>
+        <audio controls>
+            <source src="https://japanesetest4you.com/choukai/0002/n5_1_1.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="choices">
+        <p>คำถาม: </p>
+        <button onclick="checkAnswer(1)">1. こんにちは</button>
+        <button onclick="checkAnswer(2)">2. おはようございます</button>
+        <button onclick="checkAnswer(3)">3. さようなら</button>
+        <button onclick="checkAnswer(4)">4. ありがとう</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswer(choice) {
+            let resultText = "";
+            if (choice === 1) {
+                resultText = "คำตอบถูกต้อง!";
+            } else {
+                resultText = "คำตอบผิด. ลองใหม่!";
+            }
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
+</body>
+</html>
