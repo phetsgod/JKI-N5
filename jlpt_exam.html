@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLPT N5 Exam</title>
+    <style>
+        body {margin: 0; padding: 0; background: url('https://i.pinimg.com/originals/d2/51/9f/d2519f97a780645b9b5335c3460ce25a.gif') no-repeat center center fixed; background-size: cover; font-family: Arial, sans-serif; color: white; display: flex; justify-content: center; align-items: center; height: 100vh;}
+        .container {background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; text-align: center; max-width: 500px; width: 100%;}
+        h1 {font-size: 28px; margin-bottom: 20px;}
+        button {padding: 10px 20px; font-size: 16px; color: white; background-color: #ff9800; border: none; border-radius: 5px; cursor: pointer;}
+        button:hover {background-color: #ff5722;}
+        .hidden {display: none;}
+        .questions {max-height: 400px; overflow-y: auto; text-align: left;}
+    </style>
+</head>
+<body>
+    <div class="container" id="start-screen">
+        <h1>ข้อสอบ JLPT ระดับ N5</h1>
+        <p>เตรียมตัวให้พร้อม แล้วกด "เริ่มสอบ" เพื่อเข้าสู่การทำข้อสอบ</p>
+        <button onclick="startExam()">เริ่มสอบ</button>
+    </div>
+    <div class="container hidden" id="exam-screen">
+        <h1>ข้อสอบ JLPT ระดับ N5</h1>
+        <p>เวลาที่เหลือ: <span id="timer">105:00</span></p>
+        <div class="questions" id="questions">
+            <!-- ข้อสอบข้อที่ 1-10 -->
+            <p>Q:1 「レポートは？」「すみません。まだ　いません」</p>
+            <ul><li><input type="radio" name="q1" value="4"> 書いて</li><li><input type="radio" name="q1" value="2"> 筆いて</li><li><input type="radio" name="q1" value="1"> 事いて</li><li><input type="radio" name="q1" value="3"> 読いて</li></ul>
+            <p>Q:2 まいとし　12月は　とても　いそがしいです。</p>
+            <ul><li><input type="radio" name="q2" value="4"> 毎年</li><li><input type="radio" name="q2" value="1"> 写年</li><li><input type="radio" name="q2" value="3"> 海年</li><li><input type="radio" name="q2" value="2"> 母年</li></ul>
+            <p>Q:3 このパソコンは　たかかったです。</p>
+            <ul><li><input type="radio" name="q3" value="1"> 高かった</li><li><input type="radio" name="q3" value="2"> 亭かった</li><li><input type="radio" name="q3" value="3"> 京かった</li><li><input type="radio" name="q3" value="4"> 言かった</li></ul>
+            <p>Q:4 今日は　どこにも　いきたくないです。</p>
+            <ul><li><input type="radio" name="q4" value="1"> 行きたくない</li><li><input type="radio" name="q4" value="2"> 住きたくない</li><li><input type="radio" name="q4" value="3"> 来きたくない</li><li><input type="radio" name="q4" value="4"> 走きたくない</li></ul>
+            <p>Q:5 きのうは　本を読んだあとで　しゅくだいを　しました。</p>
+            <ul><li><input type="radio" name="q5" value="2"> 後で</li><li><input type="radio" name="q5" value="1"> 役で</li><li><input type="radio" name="q5" value="3"> 彼で</li><li><input type="radio" name="q5" value="4"> 往で</li></ul>
+            <p>Q:6 毎朝、7時に　いえを　でます。</p>
+            <ul><li><input type="radio" name="q6" value="3"> 出ます</li><li><input type="radio" name="q6" value="4"> 来ます</li><li><input type="radio" name="q6" value="1"> 主ます</li><li><input type="radio" name="q6" value="2"> 米ます</li></ul>
+            <p>Q:7 きのうは　９じかんぐらい　ねました。</p>
+            <ul><li><input type="radio" name="q7" value="3"> 時間</li><li><input type="radio" name="q7" value="1"> 時門</li><li><input type="radio" name="q7" value="2"> 時聞</li><li><input type="radio" name="q7" value="4"> 時問</li></ul>
+            <p>Q:8 きょうは　一日じゅう　しごとを　して、とても　つかれました。</p>
+            <ul><li><input type="radio" name="q8" value="3"> 十</li><li><input type="radio" name="q8" value="2"> 下</li><li><input type="radio" name="q8" value="1"> 上</li><li><input type="radio" name="q8" value="4"> 中</li></ul>
+            <p>Q:9 おくには　どちらですか。</p>
+            <ul><li><input type="radio" name="q9" value="1"> 国</li><li><input type="radio" name="q9" value="2"> 同</li><li><input type="radio" name="q9" value="3"> 因</li><li><input type="radio" name="q9" value="4"> 用</li></ul>
+            <p>Q:10 あのカフェで　すこし　やすみましょう。</p>
+            <ul><li><input type="radio" name="q10" value="4"> 休みましょう</li><li><input type="radio" name="q10" value="1"> 件みましょう</li><li><input type="radio" name="q10" value="3"> 仕みましょう</li><li><input type="radio" name="q10" value="2"> 体みましょう</li></ul>
+
+            <!-- ข้อสอบข้อที่ 11-20 -->
+            <p>Q:11 今、おかねを　いくら　もっていますか。</p>
+            <ul><li><input type="radio" name="q11" value="3"> 金</li><li><input type="radio" name="q11" value="4"> 定</li><li><input type="radio" name="q11" value="1"> 全</li><li><input type="radio" name="q11" value="2"> 宝</li></ul>
+            <p>Q:12 てんきが　よく　なりましたね。</p>
+            <ul><li><input type="radio" name="q12" value="2"> 天気</li><li><input type="radio" name="q12" value="3"> 失気</li><li><input type="radio" name="q12" value="4"> 失汽</li><li><input type="radio" name="q12" value="1"> 天汽</li></ul>
+            <p>Q:13 食べながら　はなさないほうが　いいですよ。</p>
+            <ul><li><input type="radio" name="q13" value="2"> 話さない</li><li><input type="radio" name="q13" value="3"> 計さない</li><li><input type="radio" name="q13" value="4"> 読さない</li><li><input type="radio" name="q13" value="1"> 記さない</li></ul>
+            <p>Q:14 あのかどを　みぎに　まがって　まっすぐ行ってください。</p>
+            <ul><li><input type="radio" name="q14" value="1"> 右</li><li><input type="radio" name="q14" value="2"> 石</li><li><input type="radio" name="q14" value="3"> 左</li><li><input type="radio" name="q14" value="4"> 佐</li></ul>
+            <p>Q:15 「どうぞ　はいってください」「しつれいします」</p>
+            <ul><li><input type="radio" name="q15" value="4"> 失礼します</li><li><input type="radio" name="q15" value="3"> 才力します</li><li><input type="radio" name="q15" value="1"> 正るします</li><li><input type="radio" name="q15" value="2"> 性流します</li></ul>
+            <p>Q:16 この店は　いくら　くらいですか。</p>
+            <ul><li><input type="radio" name="q16" value="2"> 値</li><li><input type="radio" name="q16" value="1"> 事</li><li><input type="radio" name="q16" value="4"> 若</li><li><input type="radio" name="q16" value="3"> 安</li></ul>
+            <p>Q:17 いくつか、かんたんに　たべられる　たべものを　ください。</p>
+            <ul><li><input type="radio" name="q17" value="2"> 食べる</li><li><input type="radio" name="q17" value="3"> 持って</li><li><input type="radio" name="q17" value="1"> 書く</li><li><input type="radio" name="q17" value="4"> 何も</li></ul>
+            <p>Q:18 よるは、テレビを　みてから　しゅくだいを　します。</p>
+            <ul><li><input type="radio" name="q18" value="4"> 見て</li><li><input type="radio" name="q18" value="3"> 漢</li><li><input type="radio" name="q18" value="2"> 考</li><li><input type="radio" name="q18" value="1"> 設</li></ul>
+            <p>Q:19 あなたの　じんこうは　なんですか。</p>
+            <ul><li><input type="radio" name="q19" value="3"> 身</li><li><input type="radio" name="q19" value="2"> 健</li><li><input type="radio" name="q19" value="4"> 年齢</li><li><input type="radio" name="q19" value="1"> 定義</li></ul>
+            <p>Q:20 あのう、うちの　けっこんしきに　きてくださいませんか。</p>
+            <ul><li><input type="radio" name="q20" value="1"> 来て</li><li><input type="radio" name="q20" value="2"> 呼んで</li><li><input type="radio" name="q20" value="4"> 教えて</li><li><input type="radio" name="q20" value="3"> あげて</li></ul>
+        </div>
+        <br>
+        <button onclick="finishExam()">ส่งคำตอบ</button>
+    </div>
+    <div class="container hidden" id="result-screen">
+        <h1>ผลการสอบ</h1>
+        <p>คะแนน: <span id="score"></span></p>
+        <button onclick="retryExam()">ลองใหม่</button>
+    </div>
+
+    <script>
+        let timer = 105 * 60;  // 105 minutes
+        let timerInterval;
+
+        function startExam() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('exam-screen').classList.remove('hidden');
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            if (timer <= 0) {
+                clearInterval(timerInterval);
+                finishExam();
+                return;
+            }
+            let minutes = Math.floor(timer / 60);
+            let seconds = timer % 60;
+            document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
+            timer--;
+        }
+
+        function finishExam() {
+            clearInterval(timerInterval);
+            let score = calculateScore();
+            document.getElementById('score').textContent = `${score} / 20`;
+            document.getElementById('exam-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+        }
+
+        function calculateScore() {
+            let score = 0;
+            for (let i = 1; i <= 30; i++) {
+                const answer = document.querySelector(`input[name="q${i}"]:checked`);
+                if (answer && answer.value === '1') {  // Correct answers should be '1' for simplicity
+                    score++;
+                }
+            }
+            return score;
+        }
+
+        function retryExam() {
+            timer = 105 * 60;
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('start-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
+<div style="position: fixed; top: 10px; left: 10px; z-index: 1000;">
+    <button onclick="window.location.href='test.html';" style="background-color: green; color: white; padding: 10px 20px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">Back</button>
+</div>
